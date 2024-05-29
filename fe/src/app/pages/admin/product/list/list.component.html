@@ -1,0 +1,68 @@
+<h1 class="text-4xl font-bold my-3">Product List</h1>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th class="w-[100px] p-4">Id</th>
+        <th class="w-[300px] p-4">Image</th>
+        <th class="w-[500px] p-4">Title</th>
+        <th class="w-[500px] p-4">Desc</th>
+        <th class="w-[100px] p-4">Price</th>
+        <th class="w-[300px] p-4">Show</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-300 dark:border-gray-700"
+        *ngFor="let product of products; index as item"
+      >
+        <th class="p-4 font-medium text-gray-900 dark:text-black">
+          {{ item + 1 }}
+        </th>
+        <th
+          class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-black"
+        >
+          <img src="{{ product.image }}" alt="" width="300px" height="100px" />
+        </th>
+        <td class="p-4 font-medium text-gray-900 dark:text-black">
+          {{ product.name }}
+        </td>
+        <td class="p-4 dark:text-black">
+          {{ product.desc }}
+        </td>
+        <td class="p-4 dark:text-black">
+          {{ product.price }}
+        </td>
+        <td class="h-fit p-4">
+          <a
+            [routerLink]="['/admin/detail', product._id]"
+            class="w-full flex my-4 items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/10"
+          >
+            Detail
+          </a>
+          <button
+            class="w-full flex my-4 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 mr-2"
+            (click)="removeProduct(product._id!)"
+          >
+            Delete
+          </button>
+          <a
+            [routerLink]="['/admin/edit', product._id]"
+            class="w-full flex my-4 items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/10"
+          >
+            Edit
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="">
+  <a
+    class="w-[200px] h-[50px] my-4 flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/1"
+    [routerLink]="['/admin/add']"
+    ><p class="text-center">Add</p></a
+  >
+</div>
