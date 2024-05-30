@@ -8,8 +8,6 @@ export class ProductService {
   http = inject(HttpClient);
   apiURL = 'http://localhost:8080/api/v1/products';
 
-  constructor() {}
-  // getAllProduct
   getAllProduct() {
     return this.http.get<Product[]>(this.apiURL);
   }

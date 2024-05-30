@@ -69,7 +69,6 @@ export class Bai4Component {
     },
   ];
   listProduct: IProduct[] = [];
-  constructor() {}
   ngOnInit(): void {
     this.listProduct = this.products;
   }
@@ -94,10 +93,10 @@ export class Bai4Component {
   toggleImage(): void {
     this.showImage = !this.showImage; // đảo ngược giá trị của showImage
   }
-  removeItem(id: number){
-    const confirm = window.confirm("Are you sure??");
-    if(confirm){
-      this.products = this.products.filter(product => product.id !== id)
+  removeItem(id: number) {
+    const confirm = window.confirm('Are you sure??');
+    if (confirm) {
+      this.products = this.products.filter((product) => product.id !== id);
     }
   }
 }
