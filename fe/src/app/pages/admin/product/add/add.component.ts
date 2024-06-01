@@ -11,6 +11,8 @@ import { CommonModule, NgIf } from '@angular/common';
 import { ProductService } from '../../../../services/product.service';
 import { Product } from '../../../../interface/product';
 import { Router } from '@angular/router';
+import { CategoryService } from '../../../../services/category.service';
+import Category from '../../../../interface/category';
 
 @Component({
   selector: 'app-add',
@@ -21,13 +23,23 @@ import { Router } from '@angular/router';
 })
 export class ProductAddComponent {
   router = inject(Router);
-  data: Product = { name: '', price: 0, image: '', desc: '', isShow: true };
+  data: Product = {
+    name: '',
+    price: 0,
+    image: '',
+    category: '',
+    desc: '',
+    isShow: true,
+  };
+  category: Category[] = [];
   productService = inject(ProductService);
+  categoryService = inject(CategoryService);
   formValidate = inject(FormBuilder);
 
   productForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
     desc: new FormControl('', Validators.required),
   });
   onSubmit() {
@@ -35,6 +47,11 @@ export class ProductAddComponent {
     this.productService.addProduct(this.data).subscribe(() => {
       this.router.navigate(['/admin/list']);
       alert('Add success');
+    });
+  }
+  ngOnInit() {
+    this.categoryService.getAllCategories().subscribe((res) => {
+      this.category = res;
     });
   }
 }

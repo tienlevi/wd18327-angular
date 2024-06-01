@@ -13,6 +13,7 @@ export interface Product {
   name: string;
   desc: string;
   image: string;
+  category?: string;
   price: number;
   isShow: boolean;
 }

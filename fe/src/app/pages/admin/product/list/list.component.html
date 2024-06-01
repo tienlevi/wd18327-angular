@@ -5,12 +5,13 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <th class="w-[100px] p-4">Id</th>
-        <th class="w-[300px] p-4">Image</th>
-        <th class="w-[500px] p-4">Title</th>
-        <th class="w-[500px] p-4">Desc</th>
-        <th class="w-[100px] p-4">Price</th>
-        <th class="w-[300px] p-4">Show</th>
+        <th class="w-[100px] p-4 text-left">Id</th>
+        <th class="w-[300px] p-4 text-left">Image</th>
+        <th class="w-[500px] p-4 text-left">Title</th>
+        <th class="w-[500px] p-4 text-left">Desc</th>
+        <th class="w-[100px] p-4 text-left">Price</th>
+        <th class="w-[100px] p-4 text-left">Category</th>
+        <th class="w-[300px] p-4 text-left">Show</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +35,9 @@
         </td>
         <td class="p-4 dark:text-black">
           {{ product.price }}
+        </td>
+        <td class="p-4 dark:text-black">
+          {{ product.category }}
         </td>
         <td class="h-fit p-4">
           <a

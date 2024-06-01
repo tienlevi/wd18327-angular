@@ -1,6 +1,5 @@
 import { NgFor } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Spham } from '../../../interface/Spham';
 import { Product } from '../../../interface/product';
 import { ProductService } from '../../../services/product.service';
 import { RouterLink } from '@angular/router';

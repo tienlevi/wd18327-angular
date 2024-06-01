@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Inventor } from '../../interface/inventor';
 import { NgFor } from '@angular/common';
 
 @Component({
@@ -7,10 +6,10 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [NgFor],
   templateUrl: './bai3.component.html',
-  styleUrl: './bai3.component.css'
+  styleUrl: './bai3.component.css',
 })
 export class Bai3Component {
-  inventors: Inventor[] = [
+  inventors = [
     { id: 1, first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
     { id: 2, first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
     { id: 3, first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },

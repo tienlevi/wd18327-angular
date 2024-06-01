@@ -11,6 +11,8 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import Category from '../../../../interface/category';
+import { CategoryService } from '../../../../services/category.service';
 
 @Component({
   selector: 'app-edit',
@@ -29,13 +31,16 @@ export class ProductEditComponent {
     isShow: true,
   };
   router = inject(Router);
+  category: Category[] = [];
   productService = inject(ProductService);
+  categoryService = inject(CategoryService);
   id = this.route.snapshot.params['id'];
   formValidate = inject(FormBuilder);
 
   productForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
     desc: new FormControl('', Validators.required),
   });
 
@@ -43,6 +48,9 @@ export class ProductEditComponent {
     this.productService
       .getProductById(this.id)
       .subscribe((res: any) => (this.data = res));
+    this.categoryService.getAllCategories().subscribe((res) => {
+      this.category = res;
+    });
   }
 
   onSubmit() {
