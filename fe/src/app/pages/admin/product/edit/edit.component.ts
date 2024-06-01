@@ -23,12 +23,13 @@ import { CategoryService } from '../../../../services/category.service';
 })
 export class ProductEditComponent {
   route = inject(ActivatedRoute);
+  toggle: boolean = false;
   data: Product = {
     name: '',
     price: 0,
     image: '',
     desc: '',
-    isShow: true,
+    isShow: this.toggle,
   };
   router = inject(Router);
   category: Category[] = [];
