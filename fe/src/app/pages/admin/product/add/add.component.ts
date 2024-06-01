@@ -23,14 +23,16 @@ import Category from '../../../../interface/category';
 })
 export class ProductAddComponent {
   router = inject(Router);
+  toggle: boolean = false;
   data: Product = {
     name: '',
     price: 0,
     image: '',
     category: '',
     desc: '',
-    isShow: true,
+    isShow: this.toggle,
   };
+
   category: Category[] = [];
   productService = inject(ProductService);
   categoryService = inject(CategoryService);
@@ -38,9 +40,11 @@ export class ProductAddComponent {
 
   productForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
+    price: new FormControl(0),
     image: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
     desc: new FormControl('', Validators.required),
+    isShow: new FormControl(false),
   });
   onSubmit() {
     if (this.productForm.invalid) return;

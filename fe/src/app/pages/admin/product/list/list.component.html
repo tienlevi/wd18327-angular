@@ -12,6 +12,7 @@
         <th class="w-[100px] p-4 text-left">Price</th>
         <th class="w-[100px] p-4 text-left">Category</th>
         <th class="w-[300px] p-4 text-left">Show</th>
+        <th class="w-[300px] p-4 text-left">Handle</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +39,9 @@
         </td>
         <td class="p-4 dark:text-black">
           {{ product.category }}
+        </td>
+        <td class="p-4 dark:text-black">
+          {{ product.isShow ? "True" : "False" }}
         </td>
         <td class="h-fit p-4">
           <a

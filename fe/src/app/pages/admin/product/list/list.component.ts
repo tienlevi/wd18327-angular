@@ -23,9 +23,7 @@ export class ProductListComponent {
   removeProduct(id: number) {
     const confirm = window.confirm('Bạn có chắc chắn muốn xóa không?');
     if (confirm) {
-      this.productService
-        .deleteProduct(id)
-        .subscribe(() => alert('Xóa thành công'));
+      this.productService.deleteProduct(id).subscribe();
       window.location.reload();
     }
   }
