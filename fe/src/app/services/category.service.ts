@@ -24,7 +24,7 @@ export class CategoryService {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
 
-  editProduct(id: string | number, data: any) {
+  editCategory(id: string | number, data: any) {
     return this.http.put(`${this.apiURL}/${id}`, data);
   }
 }

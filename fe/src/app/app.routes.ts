@@ -13,6 +13,9 @@ import { UserComponent } from './pages/admin/user/user.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { DetailComponent } from './pages/admin/product/detail/detail.component';
+import { CategoryComponent } from './pages/admin/category/list/category.component';
+import { CategoryAddComponent } from './pages/admin/category/category-add/category-add.component';
+import { CategoryEditComponent } from './pages/admin/category/category-edit/category-edit.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +37,9 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'user', component: UserComponent },
       { path: 'list', component: ProductListComponent },
+      { path: 'category', component: CategoryComponent },
+      { path: 'category/add', component: CategoryAddComponent },
+      { path: 'category/edit/:id', component: CategoryEditComponent },
       { path: 'add', component: ProductAddComponent },
       { path: 'edit/:id', component: ProductEditComponent },
       { path: 'detail/:id', component: DetailComponent },

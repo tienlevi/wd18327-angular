@@ -28,7 +28,7 @@ export const getCategoryById = async (req, res) => {
       return res
         .status(StatusCodes.NOT_FOUND)
         .json({ message: "Không tìm thấy sản phẩm nào!" });
-    return res.status(StatusCodes.OK).json(category);
+    return res.status(StatusCodes.OK).json(data);
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
   }

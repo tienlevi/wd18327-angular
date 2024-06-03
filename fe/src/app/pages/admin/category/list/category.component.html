@@ -1,0 +1,50 @@
+<h1 class="text-4xl font-bold my-3">Category List</h1>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th class="w-[100px] p-4 text-left">Id</th>
+        <th class="w-[500px] p-4 text-left">Title</th>
+        <th class="w-[100px] p-4 text-left">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-300 dark:border-gray-700"
+        *ngFor="let category of categories; index as item"
+      >
+        <th class="p-4 font-medium text-gray-900 dark:text-black">
+          {{ item + 1 }}
+        </th>
+
+        <td class="p-4 font-medium text-gray-900 dark:text-black">
+          {{ category.name }}
+        </td>
+
+        <td class="h-fit p-4">
+          <button
+            class="w-full flex my-4 items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10 mr-2"
+            (click)="removeCategory(category._id!)"
+          >
+            Delete
+          </button>
+          <a
+            [routerLink]="['/admin/category/edit/', category._id]"
+            class="w-full flex my-4 items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/10"
+          >
+            Edit
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="">
+  <a
+    class="w-[200px] h-[50px] my-4 flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-red-600/1"
+    [routerLink]="['/admin/category/add']"
+    ><p class="text-center">Add</p></a
+  >
+</div>
