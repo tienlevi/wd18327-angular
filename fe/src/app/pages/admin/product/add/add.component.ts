@@ -24,14 +24,6 @@ import Category from '../../../../interface/category';
 export class ProductAddComponent {
   router = inject(Router);
   toggle: boolean = false;
-  data: Product = {
-    name: '',
-    price: 0,
-    image: '',
-    category: '',
-    desc: '',
-    isShow: this.toggle,
-  };
 
   category: Category[] = [];
   productService = inject(ProductService);
@@ -48,7 +40,7 @@ export class ProductAddComponent {
   });
   onSubmit() {
     if (this.productForm.invalid) return;
-    this.productService.addProduct(this.data).subscribe(() => {
+    this.productService.addProduct(this.productForm.value).subscribe(() => {
       this.router.navigate(['/admin/list']);
       alert('Add success');
     });

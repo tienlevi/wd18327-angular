@@ -21,10 +21,6 @@ import { CategoryService } from '../../../../services/category.service';
 })
 export class CategoryAddComponent {
   router = inject(Router);
-  data: Category = {
-    name: '',
-  };
-
   category: Category[] = [];
   categoryService = inject(CategoryService);
   formValidate = inject(FormBuilder);
@@ -34,7 +30,7 @@ export class CategoryAddComponent {
   });
   onSubmit() {
     if (this.categoryForm.invalid) return;
-    this.categoryService.addCategory(this.data).subscribe(() => {
+    this.categoryService.addCategory(this.categoryForm.value).subscribe(() => {
       this.router.navigate(['/admin/category']);
       alert('Add success');
     });

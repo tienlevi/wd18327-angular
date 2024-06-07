@@ -21,9 +21,6 @@ import { CategoryService } from '../../../../services/category.service';
 })
 export class CategoryEditComponent {
   route = inject(ActivatedRoute);
-  data: Category = {
-    name: '',
-  };
   router = inject(Router);
   categoryService = inject(CategoryService);
   id = this.route.snapshot.params['id'];
@@ -36,14 +33,16 @@ export class CategoryEditComponent {
   ngOnInit() {
     this.categoryService
       .getCategoryById(this.id)
-      .subscribe((res: any) => (this.data = res));
+      .subscribe((res: any) => this.categoryForm.patchValue(res));
   }
 
   onSubmit() {
     if (this.categoryForm.invalid) return;
-    this.categoryService.editCategory(this.id, this.data).subscribe(() => {
-      this.router.navigate(['/admin/category']);
-      alert('Edit success');
-    });
+    this.categoryService
+      .editCategory(this.id, this.categoryForm.value)
+      .subscribe(() => {
+        this.router.navigate(['/admin/category']);
+        alert('Edit success');
+      });
   }
 }
