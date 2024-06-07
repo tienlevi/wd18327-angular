@@ -16,6 +16,8 @@ import { DetailComponent } from './pages/admin/product/detail/detail.component';
 import { CategoryComponent } from './pages/admin/category/list/category.component';
 import { CategoryAddComponent } from './pages/admin/category/category-add/category-add.component';
 import { CategoryEditComponent } from './pages/admin/category/category-edit/category-edit.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +29,8 @@ export const routes: Routes = [
       { path: 'bai3', component: Bai3Component },
       { path: 'bai4', component: Bai4Component },
       { path: 'search', component: SearchComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: 'detail/:id', component: ProductDetailComponent },
     ],
   },

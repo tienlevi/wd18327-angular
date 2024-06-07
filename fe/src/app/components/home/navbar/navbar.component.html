@@ -13,9 +13,8 @@
       class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
     >
       <!-- Dropdown menu -->
-      <div class="relative ml-3">
+      <div *ngIf="user" class="relative ml-3">
         <div class="flex items-center">
-          <!-- <a routerLink="/login"> -->
           <button
             type="button"
             class="relative ml-[10px] flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -32,7 +31,6 @@
               alt=""
             />
           </button>
-          <!-- </a> -->
         </div>
 
         <div
@@ -52,14 +50,6 @@
             >Your Profile</a
           >
           <a
-            routerLink="/login"
-            class="block px-4 py-2 text-sm text-gray-700"
-            role="menuitem"
-            tabindex="-1"
-            id="user-menu-item-0"
-            >Login</a
-          >
-          <a
             href="#"
             class="block px-4 py-2 text-sm text-gray-700"
             role="menuitem"
@@ -67,16 +57,25 @@
             id="user-menu-item-1"
             >Settings</a
           >
-          <a
+          <div
+            (click)="logOut()"
             href="#"
             class="block px-4 py-2 text-sm text-gray-700"
             role="menuitem"
             tabindex="-1"
             id="user-menu-item-2"
-            >Sign out</a
           >
+            Sign out
+          </div>
         </div>
       </div>
+      <a
+        *ngIf="!user"
+        [routerLink]="['/login']"
+        class="flex items-center justify-center text-[18px] bg-blue-500 text-white w-[120px] h-[45px] rounded-xl"
+      >
+        Login
+      </a>
       <button
         data-collapse-toggle="navbar-user"
         type="button"
